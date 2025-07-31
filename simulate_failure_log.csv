@@ -1,0 +1,3 @@
+phase,timestamp,note
+INFO,1753954153438,Initial pod  on 
+2a,1753954287975,kubelet stopped on worker-node-1

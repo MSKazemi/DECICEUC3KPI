@@ -1,0 +1,6 @@
+phase,timestamp,note
+INFO,1753954763608,Pod initially scheduled to decice-worker
+2a,1753954773882,Node decice-worker stopped (simulate failure)
+3a,1753955106707,New pod test-app-7c649c7fdc-mq7l5 scheduled
+3b,1753955107990,New pod entered Running phase
+3c,1753955108116,New pod became Ready
