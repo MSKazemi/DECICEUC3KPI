@@ -1,0 +1,6 @@
+phase,timestamp,note
+INFO,1758636294137,Pod initially scheduled to acnode11.e4red
+2a,1758636295163,kubelet/containerd stopped on acnode11.e4red via SSH as mseyedkazemi
+3a,1758636638362,New pod test-app-5cbcc7d5f4-zx6ml scheduled on acnode10.e4red
+3b,1758636640618,New pod entered Running phase on acnode10.e4red
+3c,1758636640704,New pod became Ready on acnode10.e4red

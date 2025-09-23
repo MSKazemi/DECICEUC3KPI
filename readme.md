@@ -4,3 +4,18 @@
 | `3a`      | **New Pod Scheduled**                 | The timestamp when the Kubernetes scheduler **assigns the new replacement pod** to a healthy node after detecting the original node has failed.       | Measures the **controller reaction time** and **scheduler responsiveness**.     |
 | `3b`      | **Pod Enters Running Phase**          | The moment the newly scheduled pod transitions from `Pending` to `Running`. This means the container has started executing.                           | Captures **image pulling, container startup latency**, and basic init overhead. |
 | `3c`      | **Pod Becomes Ready**                 | The time when the pod passes all configured **readiness checks** and is marked as `Ready` in the cluster, eligible to serve traffic.                  | Indicates **application-level readiness**, critical for real workloads.         |
+
+### Running the Experiment
+
+```
+./run_experiment.sh
+```
+
+#### Cleanup After Experiment
+
+```
+sudo systemctl start containerd && sudo systemctl start kubelet
+kubectl delete deployment test-app --grace-period=0 --force
+kubectl delete pod -l app=test-app --grace-period=0 --force
+```
+

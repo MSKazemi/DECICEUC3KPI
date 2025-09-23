@@ -7,8 +7,8 @@ set -o pipefail
 DEPLOYMENT_NAME="test-app"
 APP_LABEL="app=test-app"
 NAMESPACE="default"
-NODE_A="decice-worker"
-NODE_B="decice-worker2"
+NODE_A="acnode06.e4red"
+NODE_B="acnode10.e4red"
 RESULT_FILE="node_failure_experiment.csv"
 
 # Check dependencies
@@ -72,7 +72,7 @@ SSH_USER="ubuntu"           # replace with your SSH username
 SSH_KEY="~/.ssh/id_rsa"     # optional: specify the SSH key if needed
 
 # Stop kubelet on the target node
-ssh -i "$SSH_KEY" "$SSH_USER@$initial_node" "sudo systemctl stop kubelet && sudo systemctl stop containerd"
+ssh -i "$SSH_KEY" "$SSH_USER@$initial_node" "/usr/bin/systemctl stop kubelet && /usr/bin/systemctl stop containerd"
 
 echo "2a,$(date +%s%3N),Node $initial_node kubelet stopped (simulate failure)" >> "$RESULT_FILE"
 

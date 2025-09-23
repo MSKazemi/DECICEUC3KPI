@@ -1,0 +1,6 @@
+phase,timestamp,note
+INFO,1758636829353,Pod initially scheduled to acnode10.e4red
+2a,1758636829498,kubelet/containerd stopped locally on acnode10.e4red
+3a,1758637179235,New pod test-app-5cbcc7d5f4-wz9h7 scheduled on acnode11.e4red
+3b,1758637180366,New pod entered Running phase on acnode11.e4red
+3c,1758637180435,New pod became Ready on acnode11.e4red
