@@ -1,0 +1,331 @@
+mseyedkazemi@asnode06:~$ kubectl get pods -n uc3 -o wide
+NAME                         READY   STATUS    RESTARTS        AGE   IP             NODE             NOMINATED NODE   READINESS GATES
+uc3-edge1-67f77448c6-zvltz   1/1     Running   1 (2m32s ago)   19m   10.244.7.129   raspberrypi1     <none>           <none>
+uc3-edge2-6cfdc67f44-xrkzg   0/1     Pending   0               19m   <none>         <none>           <none>           <none>
+uc31-6dc8f49cb9-r2n8b        1/1     Running   0               10m   10.244.3.175   acnode11.e4red   <none>           <none>
+uc32-6f97f78665-2ggbs        1/1     Running   0               19m   10.244.2.242   acnode10.e4red   <none>           <none>
+uc33-7968945bb4-rnb8w        1/1     Running   1 (2m33s ago)   19m   10.244.3.237   acnode11.e4red   <none>           <none>
+uc34-6d8dfc5cbc-6g6hp        1/1     Running   0               19m   10.244.4.88    acnode12.e4red   <none>           <none>
+uc35-7968945bb4-8vg4b        1/1     Running   1 (2m32s ago)   19m   10.244.3.114   acnode11.e4red   <none>           <none>
+uc36-6f97f78665-jz9np        1/1     Running   0               19m   10.244.2.160   acnode10.e4red   <none>           <none>
+venv-76fbcc8d8b-4hmw2        1/1     Running   0               19m   10.244.2.186   acnode10.e4red   <none>           <none>
+mseyedkazemi@asnode06:~$
+
+
+mseyedkazemi@acnode11:~$ cd /mnt/data/
+mseyedkazemi@acnode11:/mnt/data$ ls
+carbon-dataset  metrics_20251107_130634.csv  metrics_20251107_130634_summary.json  offline-data
+mseyedkazemi@acnode11:/mnt/data$ cat metrics_20251107_130634
+cat: metrics_20251107_130634: No such file or directory
+mseyedkazemi@acnode11:/mnt/data$ cat metrics_20251107_130634.csv
+timestamp,metric_type,latency_ms,id
+1762520852,image_processing_latency,139.94860649108887,risk_1
+1762520853,image_processing_latency,104.80642318725586,risk_2
+1762520854,image_processing_latency,95.71409225463867,risk_3
+1762520855,image_processing_latency,103.45721244812012,risk_4
+1762520856,image_processing_latency,93.39475631713867,risk_5
+1762520857,image_processing_latency,110.67008972167969,risk_6
+1762520858,image_processing_latency,118.6530590057373,risk_7
+1762520859,image_processing_latency,122.51639366149902,risk_8
+1762520860,image_processing_latency,118.19338798522949,risk_9
+1762520861,image_processing_latency,110.7327938079834,risk_10
+1762520862,image_processing_latency,119.22669410705566,risk_11
+1762520863,image_processing_latency,111.37104034423828,risk_12
+1762520864,image_processing_latency,120.02062797546387,risk_13
+1762520865,image_processing_latency,109.64131355285645,risk_14
+1762520866,image_processing_latency,119.07052993774414,risk_15
+1762520867,image_processing_latency,122.17092514038086,risk_16
+1762520868,image_processing_latency,100.2800464630127,risk_17
+1762520869,image_processing_latency,105.34834861755371,risk_18
+1762520870,image_processing_latency,130.71751594543457,risk_19
+1762520871,image_processing_latency,115.37694931030273,risk_20
+1762520872,image_processing_latency,106.41837120056152,risk_21
+1762520873,image_processing_latency,117.02561378479004,risk_22
+1762520874,image_processing_latency,111.9382381439209,risk_23
+1762520875,image_processing_latency,119.16995048522949,risk_24
+1762520876,image_processing_latency,120.88203430175781,risk_25
+1762520877,image_processing_latency,118.40200424194336,risk_26
+1762520878,image_processing_latency,122.87712097167969,risk_27
+1762520879,image_processing_latency,141.10898971557617,risk_28
+1762520880,image_processing_latency,135.44130325317383,risk_29
+1762520881,image_processing_latency,139.3735408782959,risk_30
+1762520882,image_processing_latency,141.59560203552246,risk_31
+1762520883,image_processing_latency,176.6965389251709,risk_32
+1762520884,image_processing_latency,105.77034950256348,risk_33
+1762520885,image_processing_latency,118.45660209655762,risk_34
+1762520886,image_processing_latency,129.95076179504395,risk_35
+1762520887,image_processing_latency,134.65070724487305,risk_36
+1762520888,image_processing_latency,138.9026641845703,risk_37
+1762520889,image_processing_latency,138.73982429504395,risk_38
+1762520890,image_processing_latency,131.0596466064453,risk_39
+1762520891,image_processing_latency,138.89575004577637,risk_40
+1762520892,image_processing_latency,134.9644660949707,risk_41
+1762520893,image_processing_latency,144.17791366577148,risk_42
+1762520894,image_processing_latency,140.17796516418457,risk_43
+1762520895,image_processing_latency,138.39197158813477,risk_44
+1762520896,image_processing_latency,142.31038093566895,risk_45
+1762520897,image_processing_latency,141.65019989013672,risk_46
+1762520898,image_processing_latency,114.4866943359375,risk_47
+1762520899,image_processing_latency,127.89678573608398,risk_48
+1762520900,image_processing_latency,107.53917694091797,risk_49
+1762520901,image_processing_latency,127.6559829711914,risk_50
+1762520902,image_processing_latency,123.76093864440918,risk_51
+1762520903,image_processing_latency,136.6138458251953,risk_52
+1762520904,image_processing_latency,125.762939453125,risk_53
+1762520905,image_processing_latency,130.97882270812988,risk_54
+1762520906,image_processing_latency,141.87359809875488,risk_55
+1762520907,image_processing_latency,179.84867095947266,risk_56
+1762520908,image_processing_latency,134.08422470092773,risk_57
+1762520909,image_processing_latency,134.54270362854004,risk_58
+1762520910,image_processing_latency,142.2436237335205,risk_59
+1762520911,image_processing_latency,139.01805877685547,risk_60
+1762520912,image_processing_latency,142.09961891174316,risk_61
+1762520913,image_processing_latency,119.57144737243652,risk_62
+1762520914,image_processing_latency,128.47113609313965,risk_63
+1762520915,image_processing_latency,103.55424880981445,risk_64
+1762520916,image_processing_latency,104.54988479614258,risk_65
+1762520917,image_processing_latency,127.27165222167969,risk_66
+1762520918,image_processing_latency,134.55939292907715,risk_67
+1762520919,image_processing_latency,133.38136672973633,risk_68
+1762520920,image_processing_latency,134.21988487243652,risk_69
+1762520921,image_processing_latency,126.70707702636719,risk_70
+1762520922,image_processing_latency,140.82074165344238,risk_71
+1762520923,image_processing_latency,140.30098915100098,risk_72
+1762520924,image_processing_latency,136.91997528076172,risk_73
+1762520925,image_processing_latency,141.59584045410156,risk_74
+1762520926,image_processing_latency,137.48526573181152,risk_75
+1762520927,image_processing_latency,137.56990432739258,risk_76
+1762520928,image_processing_latency,103.77144813537598,risk_77
+1762520929,image_processing_latency,128.13234329223633,risk_78
+1762520930,image_processing_latency,123.31199645996094,risk_79
+1762520931,image_processing_latency,103.86037826538086,risk_80
+1762520931,yolo_latency,96.7104434967041,yolo_1
+1762520932,image_processing_latency,99.5781421661377,risk_81
+1762520933,image_processing_latency,126.00970268249512,risk_82
+1762520934,image_processing_latency,137.24112510681152,risk_83
+1762520935,image_processing_latency,141.04795455932617,risk_84
+1762520936,image_processing_latency,134.5686912536621,risk_85
+1762520936,yolo_latency,37.0030403137207,yolo_2
+1762520937,image_processing_latency,141.77489280700684,risk_86
+1762520938,image_processing_latency,129.2719841003418,risk_87
+1762520939,image_processing_latency,135.50424575805664,risk_88
+1762520940,image_processing_latency,103.27792167663574,risk_89
+1762520940,yolo_latency,37.15801239013672,yolo_3
+1762520941,image_processing_latency,122.16806411743164,risk_90
+1762520942,image_processing_latency,141.13187789916992,risk_91
+1762520943,image_processing_latency,102.76269912719727,risk_92
+1762520944,image_processing_latency,111.74273490905762,risk_93
+1762520945,image_processing_latency,124.55606460571289,risk_94
+1762520945,yolo_latency,41.08786582946777,yolo_4
+1762520946,image_processing_latency,118.14713478088379,risk_95
+1762520947,image_processing_latency,125.35953521728516,risk_96
+1762520948,image_processing_latency,122.69353866577148,risk_97
+1762520949,image_processing_latency,124.86457824707031,risk_98
+1762520950,image_processing_latency,116.15800857543945,risk_99
+1762520951,image_processing_latency,134.25135612487793,risk_100
+1762520952,image_processing_latency,132.9035758972168,risk_101
+1762520953,image_processing_latency,133.7132453918457,risk_102
+1762520954,image_processing_latency,128.84163856506348,risk_103
+1762520955,image_processing_latency,125.61368942260742,risk_104
+1762520956,image_processing_latency,129.20856475830078,risk_105
+1762520956,yolo_latency,34.17062759399414,yolo_5
+1762520957,image_processing_latency,103.11388969421387,risk_106
+1762520958,image_processing_latency,125.62227249145508,risk_107
+1762520959,image_processing_latency,112.05697059631348,risk_108
+1762520960,image_processing_latency,117.62404441833496,risk_109
+1762520961,image_processing_latency,141.49093627929688,risk_110
+1762520962,image_processing_latency,129.2581558227539,risk_111
+1762520963,image_processing_latency,132.77435302734375,risk_112
+1762520964,image_processing_latency,133.27693939208984,risk_113
+1762520965,image_processing_latency,139.49084281921387,risk_114
+1762520966,image_processing_latency,125.26631355285645,risk_115
+1762520967,image_processing_latency,124.45807456970215,risk_116
+1762520968,image_processing_latency,133.2380771636963,risk_117
+1762520969,image_processing_latency,126.47008895874023,risk_118
+1762520970,image_processing_latency,129.9879550933838,risk_119
+1762520971,image_processing_latency,128.63731384277344,risk_120
+1762520972,image_processing_latency,102.95963287353516,risk_121
+1762520973,image_processing_latency,128.30591201782227,risk_122
+1762520974,image_processing_latency,102.87690162658691,risk_123
+1762520975,image_processing_latency,102.37503051757812,risk_124
+1762520976,image_processing_latency,130.2628517150879,risk_125
+1762520977,image_processing_latency,136.84797286987305,risk_126
+1762520978,image_processing_latency,136.93618774414062,risk_127
+1762520979,image_processing_latency,140.61236381530762,risk_128
+1762520980,image_processing_latency,134.86170768737793,risk_129
+1762520981,image_processing_latency,140.93875885009766,risk_130
+1762520982,image_processing_latency,136.11984252929688,risk_131
+1762520983,image_processing_latency,139.90092277526855,risk_132
+1762520984,image_processing_latency,139.86706733703613,risk_133
+1762520985,image_processing_latency,135.084867477417,risk_134
+1762520986,image_processing_latency,137.37058639526367,risk_135
+1762520987,image_processing_latency,101.93228721618652,risk_136
+1762520988,image_processing_latency,127.13932991027832,risk_137
+1762520989,image_processing_latency,137.40801811218262,risk_138
+1762520990,image_processing_latency,104.54034805297852,risk_139
+1762520991,image_processing_latency,140.1381492614746,risk_140
+1762520992,image_processing_latency,137.40825653076172,risk_141
+1762520993,image_processing_latency,137.4058723449707,risk_142
+1762520994,image_processing_latency,136.5208625793457,risk_143
+1762520995,image_processing_latency,137.26305961608887,risk_144
+1762520996,image_processing_latency,136.7037296295166,risk_145
+1762520997,image_processing_latency,140.4256820678711,risk_146
+1762520998,image_processing_latency,135.0116729736328,risk_147
+1762520999,image_processing_latency,136.99960708618164,risk_148
+1762521000,image_processing_latency,139.15014266967773,risk_149
+1762521001,image_processing_latency,136.02256774902344,risk_150
+1762521002,image_processing_latency,116.59789085388184,risk_151
+1762521003,image_processing_latency,125.78248977661133,risk_152
+1762521004,image_processing_latency,140.33937454223633,risk_153
+1762521005,image_processing_latency,113.37423324584961,risk_154
+1762521006,image_processing_latency,109.38024520874023,risk_155
+1762521007,image_processing_latency,129.7452449798584,risk_156
+1762521008,image_processing_latency,132.53021240234375,risk_157
+1762521009,image_processing_latency,140.88058471679688,risk_158
+1762521010,image_processing_latency,130.12957572937012,risk_159
+1762521011,image_processing_latency,135.31017303466797,risk_160
+1762521012,image_processing_latency,138.43226432800293,risk_161
+1762521013,image_processing_latency,138.37432861328125,risk_162
+1762521014,image_processing_latency,137.1293067932129,risk_163
+1762521015,image_processing_latency,111.65618896484375,risk_164
+1762521016,image_processing_latency,114.71724510192871,risk_165
+1762521017,image_processing_latency,130.10716438293457,risk_166
+1762521018,image_processing_latency,103.32775115966797,risk_167
+1762521019,image_processing_latency,117.90800094604492,risk_168
+1762521020,image_processing_latency,129.21714782714844,risk_169
+1762521021,image_processing_latency,134.6452236175537,risk_170
+1762521022,image_processing_latency,137.74418830871582,risk_171
+1762521023,image_processing_latency,125.81419944763184,risk_172
+1762521024,image_processing_latency,134.5837116241455,risk_173
+1762521025,image_processing_latency,138.9155387878418,risk_174
+1762521026,image_processing_latency,137.49456405639648,risk_175
+1762521027,image_processing_latency,137.16816902160645,risk_176
+1762521028,image_processing_latency,139.2993927001953,risk_177
+1762521029,image_processing_latency,131.66451454162598,risk_178
+1762521030,image_processing_latency,137.42470741271973,risk_179
+1762521031,image_processing_latency,103.05905342102051,risk_180
+1762521032,image_processing_latency,125.84424018859863,risk_181
+1762521033,image_processing_latency,115.7383918762207,risk_182
+1762521034,image_processing_latency,106.21261596679688,risk_183
+1762521035,image_processing_latency,125.44822692871094,risk_184
+1762521036,image_processing_latency,122.7104663848877,risk_185
+1762521037,image_processing_latency,130.02300262451172,risk_186
+1762521038,image_processing_latency,134.6108913421631,risk_187
+1762521039,image_processing_latency,131.7906379699707,risk_188
+1762521040,image_processing_latency,133.08119773864746,risk_189
+1762521041,image_processing_latency,133.92972946166992,risk_190
+1762521042,image_processing_latency,130.30648231506348,risk_191
+1762521043,image_processing_latency,133.4238052368164,risk_192
+1762521044,image_processing_latency,134.37509536743164,risk_193
+1762521045,image_processing_latency,134.4592571258545,risk_194
+1762521046,image_processing_latency,114.16888236999512,risk_195
+1762521047,image_processing_latency,133.8980197906494,risk_196
+1762521048,image_processing_latency,133.38685035705566,risk_197
+1762521049,image_processing_latency,105.29351234436035,risk_198
+1762521050,image_processing_latency,120.44239044189453,risk_199
+1762521051,image_processing_latency,132.8420639038086,risk_200
+1762521052,image_processing_latency,131.50835037231445,risk_201
+1762521053,image_processing_latency,131.16455078125,risk_202
+1762521054,image_processing_latency,134.02533531188965,risk_203
+1762521055,image_processing_latency,133.6078643798828,risk_204
+1762521056,image_processing_latency,129.72545623779297,risk_205
+1762521057,image_processing_latency,134.78612899780273,risk_206
+1762521058,image_processing_latency,126.34396553039551,risk_207
+1762521059,image_processing_latency,134.5505714416504,risk_208
+1762521060,image_processing_latency,129.47773933410645,risk_209
+1762521061,image_processing_latency,102.7984619140625,risk_210
+1762521062,image_processing_latency,102.68473625183105,risk_211
+1762521063,image_processing_latency,129.67467308044434,risk_212
+1762521064,image_processing_latency,132.1258544921875,risk_213
+1762521065,image_processing_latency,140.01011848449707,risk_214
+1762521066,image_processing_latency,132.43675231933594,risk_215
+1762521067,image_processing_latency,133.2249641418457,risk_216
+1762521068,image_processing_latency,129.37307357788086,risk_217
+1762521069,image_processing_latency,152.32348442077637,risk_218
+1762521070,image_processing_latency,164.6859645843506,risk_219
+1762521071,image_processing_latency,159.30843353271484,risk_220
+1762521072,image_processing_latency,159.92450714111328,risk_221
+1762521073,image_processing_latency,157.61065483093262,risk_222
+1762521074,image_processing_latency,156.80956840515137,risk_223
+1762521075,image_processing_latency,125.92935562133789,risk_224
+1762521076,image_processing_latency,143.82028579711914,risk_225
+1762521077,image_processing_latency,124.6805191040039,risk_226
+1762521078,image_processing_latency,124.79376792907715,risk_227
+1762521079,image_processing_latency,149.5351791381836,risk_228
+1762521080,image_processing_latency,152.12321281433105,risk_229
+1762521081,image_processing_latency,161.2083911895752,risk_230
+1762521082,image_processing_latency,152.4186134338379,risk_231
+1762521083,image_processing_latency,133.4705352783203,risk_232
+1762521084,image_processing_latency,132.50422477722168,risk_233
+1762521085,image_processing_latency,137.70151138305664,risk_234
+1762521086,image_processing_latency,127.87771224975586,risk_235
+1762521087,image_processing_latency,132.7676773071289,risk_236
+1762521088,image_processing_latency,118.83974075317383,risk_237
+1762521089,image_processing_latency,131.76751136779785,risk_238
+1762521090,image_processing_latency,105.03721237182617,risk_239
+1762521091,image_processing_latency,130.2967071533203,risk_240
+1762521092,image_processing_latency,132.14635848999023,risk_241
+1762521093,image_processing_latency,105.84592819213867,risk_242
+1762521094,image_processing_latency,128.02457809448242,risk_243
+1762521095,image_processing_latency,150.2854824066162,risk_244
+1762521096,image_processing_latency,133.12244415283203,risk_245
+1762521097,image_processing_latency,121.1247444152832,risk_246
+1762521098,image_processing_latency,120.72515487670898,risk_247
+1762521099,image_processing_latency,137.15219497680664,risk_248
+1762521100,image_processing_latency,102.3554801940918,risk_249
+1762521101,image_processing_latency,110.46934127807617,risk_250
+1762521102,image_processing_latency,124.12595748901367,risk_251
+1762521103,image_processing_latency,136.2152099609375,risk_252
+1762521104,image_processing_latency,130.45501708984375,risk_253
+1762521105,image_processing_latency,103.23119163513184,risk_254
+1762521106,image_processing_latency,129.37378883361816,risk_255
+1762521107,image_processing_latency,127.02298164367676,risk_256
+1762521108,image_processing_latency,104.19774055480957,risk_257
+1762521109,image_processing_latency,128.26895713806152,risk_258
+1762521110,image_processing_latency,131.7298412322998,risk_259
+1762521111,image_processing_latency,121.57511711120605,risk_260
+1762521112,image_processing_latency,133.00442695617676,risk_261
+1762521113,image_processing_latency,133.00490379333496,risk_262
+1762521114,image_processing_latency,131.85596466064453,risk_263
+1762521115,image_processing_latency,141.19887351989746,risk_264
+1762521116,image_processing_latency,122.53594398498535,risk_265
+1762521117,image_processing_latency,139.9555206298828,risk_266
+1762521118,image_processing_latency,130.1872730255127,risk_267
+1762521119,image_processing_latency,132.27534294128418,risk_268
+1762521120,image_processing_latency,106.38165473937988,risk_269
+1762521121,image_processing_latency,106.75048828125,risk_270
+1762521122,image_processing_latency,126.93643569946289,risk_271
+1762521123,image_processing_latency,120.65696716308594,risk_272
+1762521124,image_processing_latency,137.9103660583496,risk_273
+mseyedkazemi@acnode11:/mnt/data$
+
+
+
+
+mseyedkazemi@acnode11:/mnt/data$
+mseyedkazemi@acnode11:/mnt/data$
+mseyedkazemi@acnode11:/mnt/data$
+mseyedkazemi@acnode11:/mnt/data$
+mseyedkazemi@acnode11:/mnt/data$ cat metrics_20251107_130634_summary.json
+{
+  "session_info": {
+    "csv_file": "/root/metrics_data/metrics_20251107_130634.csv",
+    "start_time": "2025-11-07T13:07:32",
+    "end_time": "2025-11-07T13:12:04"
+  },
+  "total_measurements": 278,
+  "image_processing": {
+    "count": 273,
+    "mean_ms": 128.34117526099794,
+    "min_ms": 93.39475631713867,
+    "max_ms": 179.84867095947266,
+    "std_ms": 13.803789360623826
+  },
+  "yolo": {
+    "count": 5,
+    "mean_ms": 49.22599792480469,
+    "min_ms": 34.17062759399414,
+    "max_ms": 96.7104434967041,
+    "std_ms": 23.844089031443378
+  }
+}mseyedkazemi@acnode11:/mnt/data$
