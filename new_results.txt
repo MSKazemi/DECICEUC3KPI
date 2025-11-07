@@ -1,0 +1,165 @@
+mseyedkazemi@asnode06:~$ kubectl get pods -n uc3 -o wide
+NAME                     READY   STATUS    RESTARTS   AGE   IP             NODE             NOMINATED NODE   READINESS GATES
+edge1-67f77448c6-qrj62   1/1     Running   0          14m   10.244.7.74    raspberrypi1     <none>           <none>
+edge2-67f77448c6-nxtg9   1/1     Running   0          14m   10.244.7.95    raspberrypi1     <none>           <none>
+sitl-76fbcc8d8b-tx98l    1/1     Running   0          14m   10.244.2.211   acnode10.e4red   <none>           <none>
+uc31-6dc8f49cb9-52wvs    1/1     Running   0          14m   10.244.3.132   acnode11.e4red   <none>           <none>
+uc32-6f97f78665-rvpnb    1/1     Running   0          14m   10.244.2.242   acnode10.e4red   <none>           <none>
+uc33-6d8dfc5cbc-fwxz7    1/1     Running   0          14m   10.244.4.5     acnode12.e4red   <none>           <none>
+uc34-6d8dfc5cbc-mbh27    1/1     Running   0          14m   10.244.4.160   acnode12.e4red   <none>           <none>
+mseyedkazemi@asnode06:~$
+
+
+
+mseyedkazemi@acnode11:/mnt/data$ ls
+carbon-dataset
+metrics_20251107_130634.csv
+metrics_20251107_130634_summary.json
+metrics_20251107_132419.csv
+metrics_20251107_145344.csv
+metrics_20251107_145344_summary.json
+offline-data
+mseyedkazemi@acnode11:/mnt/data$ cat metrics_20251107_145344.csv
+timestamp,metric_type,latency_ms,id
+1762527716,image_processing_latency,394510.62870025635,risk_15
+1762527728,yolo_latency,843.609094619751,yolo_1
+1762527732,yolo_latency,461.82799339294434,yolo_2
+1762527737,yolo_latency,475.571870803833,yolo_3
+1762527741,yolo_latency,503.1130313873291,yolo_4
+1762527752,yolo_latency,469.759464263916,yolo_5
+mseyedkazemi@acnode11:/mnt/data$ cat metrics_20251107_145344_summary.json
+{
+  "session_info": {
+    "csv_file": "/root/metrics_data/metrics_20251107_145344.csv",
+    "start_time": "2025-11-07T15:01:56",
+    "end_time": "2025-11-07T15:02:32"
+  },
+  "total_measurements": 6,
+  "image_processing": {
+    "count": 1,
+    "mean_ms": 394510.62870025635,
+    "min_ms": 394510.62870025635,
+    "max_ms": 394510.62870025635,
+    "std_ms": 0.0
+  },
+  "yolo": {
+    "count": 5,
+    "mean_ms": 550.7762908935547,
+    "min_ms": 461.82799339294434,
+    "max_ms": 843.609094619751,
+    "std_ms": 147.07417711571813
+  }
+
+
+
+
+# Simulation env Node
+e4ssh
+echo 'source <(kubectl completion bash)' >> ~/.bashrc
+source ~/.bashrc
+clear
+
+ssh mseyedkazemi@172.18.16.152
+
+Open 2 terminals
+
+terminal 1
+clear
+echo 'source <(kubectl completion bash)' >> ~/.bashrc
+source ~/.bashrc
+
+kubectl exec -n uc3 sitl -it -- /bin/bash
+
+cd /home/user/PX4-Autopilot
+HEADLESS=1 make px4_sitl gz_x500
+
+terminal 2
+echo 'source <(kubectl completion bash)' >> ~/.bashrc
+source ~/.bashrc
+
+kubectl exec -n uc3 sitl -it -- /bin/bash
+
+MicroXRCEAgent udp4 -p 8888
+
+-----------------------------
+UC Nodes
+
+Node1 ( terminals 1)
+
+
+echo 'source <(kubectl completion bash)' >> ~/.bashrc
+source ~/.bashrc
+
+kubectl exec -n uc3 uc31 -it -- /bin/bash
+
+source install/setup.bash
+ros2 run decice_sat metrics_collector
+
+
+
+
+
+Node1 ( terminals 2)
+echo 'source <(kubectl completion bash)' >> ~/.bashrc
+source ~/.bashrc
+
+kubectl exec -n uc3 uc31 -it -- /bin/bash
+
+source install/setup.bash
+ros2 run decice_sat risk_image_publisher --ros-args -p scenario:=0
+
+
+-------------------------
+Node2
+echo 'source <(kubectl completion bash)' >> ~/.bashrc
+source ~/.bashrc
+
+kubectl exec -n uc3 uc32 -it -- /bin/bash
+
+source install/setup.bash
+ros2 run decice_sat standard_image_publisher --ros-args -p scenario:=0
+
+-------------------------
+
+
+Node3
+echo 'source <(kubectl completion bash)' >> ~/.bashrc
+source ~/.bashrc
+
+kubectl exec -n uc3 uc33 -it -- /bin/bash
+
+source install/setup.bash
+ros2 run decice_sat image_processor
+
+-------------------------
+
+Node4
+echo 'source <(kubectl completion bash)' >> ~/.bashrc
+source ~/.bashrc
+
+kubectl exec -n uc3 uc34 -it -- /bin/bash
+
+source install/setup.bash
+ros2 run decice_sat goal_sender
+
+-------------------------
+
+Node5
+echo 'source <(kubectl completion bash)' >> ~/.bashrc
+source ~/.bashrc
+
+kubectl exec -n uc3 edge1 -it -- /bin/bash
+
+source install/setup.bash
+ros2 run decice_sat yolo_workload --ros-args -p model_size:=nano
+
+-------------------------
+
+Node6
+echo 'source <(kubectl completion bash)' >> ~/.bashrc
+source ~/.bashrc
+
+kubectl exec -n uc3 edge2 -it -- /bin/bash
+
+source install/setup.bash
+ros2 run decice_sat offboard_control

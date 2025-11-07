@@ -1,5 +1,10 @@
 # Simulation env Node
 e4ssh
+echo 'source <(kubectl completion bash)' >> ~/.bashrc
+source ~/.bashrc
+clear
+
+ssh mseyedkazemi@172.18.16.152
 
 Open 2 terminals
 
