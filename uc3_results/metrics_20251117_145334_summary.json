@@ -1,0 +1,22 @@
+{
+  "session_info": {
+    "csv_file": "/root/metrics_data/metrics_20251117_145334.csv",
+    "start_time": "2025-11-17T14:53:37",
+    "end_time": "2025-11-17T14:54:27"
+  },
+  "total_measurements": 52,
+  "image_processing": {
+    "count": 51,
+    "mean_ms": 131.38604631610946,
+    "min_ms": 104.12240028381348,
+    "max_ms": 171.06914520263672,
+    "std_ms": 13.006792223223329
+  },
+  "yolo": {
+    "count": 1,
+    "mean_ms": 612.1623516082764,
+    "min_ms": 612.1623516082764,
+    "max_ms": 612.1623516082764,
+    "std_ms": 0.0
+  }
+}

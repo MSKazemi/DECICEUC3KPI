@@ -1,0 +1,13 @@
+timestamp,metric_type,latency_ms,id
+1763391136,image_processing_latency,863.7955188751221,risk_89
+1763391136,image_processing_latency,114.70866203308105,risk_90
+1763391137,image_processing_latency,125.01263618469238,risk_91
+1763391138,image_processing_latency,118.04461479187012,risk_92
+1763391139,image_processing_latency,129.2874813079834,risk_93
+1763391140,image_processing_latency,132.24339485168457,risk_94
+1763391141,image_processing_latency,140.7155990600586,risk_95
+1763391142,image_processing_latency,133.83746147155762,risk_96
+1763391143,image_processing_latency,134.45377349853516,risk_97
+1763391144,image_processing_latency,133.75306129455566,risk_98
+1763391145,image_processing_latency,134.16814804077148,risk_99
+1763391146,image_processing_latency,130.828857421875,risk_100
