@@ -1,0 +1,20 @@
+{
+  "csv_files/cpu_last_5_hours_highres.csv": {
+    "power_consumption": {
+      "count": 7,
+      "mean": 3.107495009474405,
+      "min": 3.0896593185507157,
+      "max": 3.1266141275897796,
+      "std": 0.013665657216132082
+    }
+  },
+  "csv_files/edge_cpu_last_5_hours_ai.csv": {
+    "power_consumption": {
+      "count": 7,
+      "mean": 3.095907937659178,
+      "min": 3.0791752578784246,
+      "max": 3.1056178600423068,
+      "std": 0.008685174735755958
+    }
+  }
+}

@@ -3,19 +3,32 @@ from datetime import datetime
 import json
 from statistics import mean, stdev
 
-CSV_FILE = "csv_files/cpu_last_5_hours_highres.csv"
+# CSV_FILE = "csv_files/cpu_last_5_hours_highres.csv"
+CSV_FILE = "csv_files/edge_cpu_last_5_hours_ai.csv"
+
 CPU_POWER_WATT = 1.6  # per core for Raspberry Pi 4
 IDLE_WATT = 3.0       # example, tune from measurements
 
 # Define experiment intervals as (start, end) in ISO format
+# OLD
+# intervals = [
+#     ("2025-11-17T14:37:38", "2025-11-17T14:39:23"),
+#     ("2025-11-17T14:39:23", "2025-11-17T14:41:08"),
+#     ("2025-11-17T14:41:08", "2025-11-17T14:43:08"),
+#     ("2025-11-17T14:43:08", "2025-11-17T14:45:08"),
+#     ("2025-11-17T14:55:53", "2025-11-17T14:57:23"),
+#     ("2025-11-17T14:58:23", "2025-11-17T15:00:08"),
+#     ("2025-11-17T15:00:53", "2025-11-17T15:02:23"),
+# ]
+
 intervals = [
-    ("2025-11-17T14:37:38", "2025-11-17T14:39:23"),
-    ("2025-11-17T14:39:23", "2025-11-17T14:41:08"),
-    ("2025-11-17T14:41:08", "2025-11-17T14:43:08"),
-    ("2025-11-17T14:43:08", "2025-11-17T14:45:08"),
-    ("2025-11-17T14:55:53", "2025-11-17T14:57:23"),
-    ("2025-11-17T14:58:23", "2025-11-17T15:00:08"),
-    ("2025-11-17T15:00:53", "2025-11-17T15:02:23"),
+    ("2025-11-27T12:49:17", "2025-11-27T12:51:02"),
+    ("2025-11-27T12:52:17", "2025-11-27T12:54:32"),
+    ("2025-11-27T13:03:47", "2025-11-27T13:05:47"),
+    ("2025-11-27T13:05:47", "2025-11-27T13:07:32"),
+    ("2025-11-27T13:07:47", "2025-11-27T13:09:32"),
+    ("2025-11-27T13:09:32", "2025-11-27T13:11:17"),
+    ("2025-11-27T13:14:17", "2025-11-27T13:16:32"),
 ]
 
 # Load CSV data
@@ -57,7 +70,7 @@ summary = {
     }
 }
 
-with open("power_summary.json", "w") as f:
+with open("power_summary_off.json", "w") as f:
     json.dump(summary, f, indent=2)
 
 print(json.dumps(summary, indent=2))

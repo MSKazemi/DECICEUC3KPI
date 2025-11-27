@@ -2,7 +2,9 @@ import json
 import os
 from statistics import mean
 
-folder = "/home/smengozzi/work/git/DECICEUC3KPI/uc3_results"
+# folder = "/home/smengozzi/work/git/DECICEUC3KPI/uc3_results"
+folder = "/home/smengozzi/work/git/DECICEUC3KPI/new_uc3_kpis"   
+
 summary_files = [f for f in os.listdir(folder) if f.endswith("_summary.json")]
 
 def collect_stats(section):
@@ -53,7 +55,7 @@ overall_summary = {
     }
 }
 
-with open(os.path.join(folder, "overall_summary.json"), "w") as f:
+with open(os.path.join(folder, "overall_summary_ai.json"), "w") as f:
     json.dump(overall_summary, f, indent=2)
 
 print(json.dumps(overall_summary, indent=2))

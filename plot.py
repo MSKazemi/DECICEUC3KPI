@@ -2,7 +2,7 @@ import csv
 from datetime import datetime
 import matplotlib.pyplot as plt
 
-CSV_FILE = "csv_files/cpu_last_5_hours_highres.csv"
+CSV_FILE = "csv_files/edge_cpu_last_5_hours_ai.csv"
 
 timestamps = []
 cpu_cores = []
