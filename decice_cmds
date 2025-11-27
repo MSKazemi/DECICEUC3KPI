@@ -6,6 +6,8 @@ clear
 
 ssh mseyedkazemi@172.18.16.152
 
+ssh mseyedkazemi@172.18.16.154 
+
 Open 2 terminals
 
 terminal 1
@@ -114,3 +116,5 @@ ros2 run decice_sat offboard_control
 
 
 scp mseyedkazemi@172.18.16.151:/mnt/data/* .
+
+scp mseyedkazemi@172.18.16.154:/mnt/data/* . 
