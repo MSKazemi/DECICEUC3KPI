@@ -1,0 +1,16 @@
+{
+  "image_processing": {
+    "total_count": 436,
+    "overall_max": 168.7769889831543,
+    "overall_min": 102.9052734375,
+    "weighted_avg": 131.01188578736893,
+    "overall_std": 11.689416211532622
+  },
+  "yolo": {
+    "total_count": 35,
+    "overall_max": 619.8947429656982,
+    "overall_min": 476.273775100708,
+    "weighted_avg": 523.1286593845913,
+    "overall_std": 37.4603840973906
+  }
+}
