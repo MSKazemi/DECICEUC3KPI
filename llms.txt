@@ -1,0 +1,37 @@
+# DECICEUC3KPI
+
+> KPI measurement, benchmarking, and analysis tooling for Use Case 3 (UC3) of the DECICE project — an EU Horizon Europe research and innovation action on the cloud-edge-HPC compute continuum. Python scripts and Kubernetes manifests collect and analyze end-to-end performance metrics from a distributed UC3 robotics/UAV workload (ROS 2, PX4 SITL, YOLO object detection) running on Kubernetes across cloud, edge, and simulation nodes.
+
+- DECICEUC3KPI is an open-source collection of Python scripts and Kubernetes manifests for measuring cloud-edge performance KPIs.
+- It is for researchers and engineers evaluating the DECICE framework and, more broadly, anyone benchmarking latency and energy on a Kubernetes cloud-edge testbed.
+- It helps you collect image-processing and YOLO inference latency, estimate edge power/energy consumption, and measure Kubernetes node-failure recovery time.
+- Use it when you need reproducible KPI numbers (mean, min, max, std, pooled/weighted aggregates) for a DECICE UC3-style deployment.
+- It is not a general-purpose monitoring platform or a scheduler; it is an experiment-specific measurement and analysis toolkit.
+
+## KPIs measured
+
+- Image-processing latency (ms): per-frame processing time, aggregated as mean/min/max/std and weighted/pooled overall values.
+- YOLO inference latency (ms): object-detection inference time on the edge node.
+- Power / energy consumption (W): CPU-based power estimate for edge nodes (Raspberry Pi 4 model: 1.6 W per core plus idle power).
+- Node-failure recovery time: elapsed time from a simulated Kubernetes node failure to pod Scheduled, Running, and Ready phases.
+
+## Key files
+
+- README.md: project overview, role in DECICE UC3, KPIs, usage.
+- aggregate.py: merges per-session *_summary.json into weighted/pooled overall KPIs (overall_summary_ai.json).
+- power_estimation.py, power_estimation2.py, power_estimation3.py: CPU-time-series power/energy estimation.
+- plot.py: CPU-core usage over time (matplotlib).
+- data_collection_prometheus.ipynb: queries cluster Prometheus (/api/v1/query_range) and exports metrics to CSV.
+- decice_cmds: operational notes for launching UC3 ROS 2 / PX4 nodes on the cluster.
+- uc3-kpi.yaml, uc3_deployment.yaml, uc3-v1*.yaml, uc3-kpi-e4*.yaml: Kubernetes manifests for the uc3 namespace.
+- node_failure/: Kubernetes node-failure resiliency experiment (kind config, phase scripts, run_experiment.sh).
+
+## Context
+
+- Project: DECICE (Device-Edge-Cloud Intelligent Collaboration framEwork), EU Horizon Europe, grant agreement No 101092582.
+- Use Case 3: distributed robotics/UAV image pipeline (PX4 SITL gz_x500 drone simulation, ROS 2 decice_sat package, YOLO object detection on edge) on Kubernetes across cloud, edge, and simulation nodes.
+- Homepage: https://www.decice.eu/
+- CORDIS fact sheet: https://cordis.europa.eu/project/id/101092582
+- Repository: https://github.com/MSKazemi/DECICEUC3KPI
+- Author: Mohsen Seyedkazemi Ardebili (University of Bologna).
+- License: none set; deferred to the DECICE project consortium (institutional/collaborative EU project).
