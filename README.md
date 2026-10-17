@@ -117,3 +117,9 @@ Before connecting accounts, running automation, relying on consequential outputs
 
 **No repository-root license has yet been confirmed for this project.** Read [Rights and Licensing Status](LICENSING_STATUS.md) before copying, redistributing, or adapting code or content. A public repository and its disclaimer do not by themselves grant new reuse permissions. Existing valid third-party rights and licenses remain in effect.
 <!-- licensing-status: end -->
+
+<!-- security-reporting: start -->
+### Security reporting
+
+Please follow the [security policy](SECURITY.md) to report suspected vulnerabilities privately. Avoid disclosing credentials or exploitable details in public issues.
+<!-- security-reporting: end -->
