@@ -111,3 +111,9 @@ The materials in this repository are made available without warranties to the ex
 
 Before connecting accounts, running automation, relying on consequential outputs, or using production systems, review [project-specific safety risks and pre-deployment checks](SAFETY.md). The checklist describes precautions to **verify**, not a certification that the software currently enforces every safeguard.
 <!-- risk-guidance: end -->
+
+<!-- licensing-status: start -->
+### Licensing and reuse status
+
+**No repository-root license has yet been confirmed for this project.** Read [Rights and Licensing Status](LICENSING_STATUS.md) before copying, redistributing, or adapting code or content. A public repository and its disclaimer do not by themselves grant new reuse permissions. Existing valid third-party rights and licenses remain in effect.
+<!-- licensing-status: end -->
